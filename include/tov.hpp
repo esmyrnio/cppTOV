@@ -10,9 +10,6 @@ class TOV{
     public:
         TOV(String,double); //tabulated EoS constructor
         TOV(double,double,double); //polytropic EoS constructor
-        Vector linspace(double, double, int); //linear space fector
-        Vector gradient(Vector, double); //find gradient of vector
-        void tovEquations(double, Array, Array); // TOV equations
         void integrateTOV(); //integration routine
         void printTabModel();
         void printPolyModel();
@@ -31,6 +28,9 @@ class TOV{
         EOS eos; // EoS class instance
         String eos_name; // Tabulated EoS file name
         double kappa,gamma; // polytropic EoS parameters
+        Vector linspace(double, double, int); //linear space fector
+        Vector gradient(Vector, double); //find gradient of vector
+        void tovEquations(double, Array, Array); // TOV equations
     public:
         double mass,radius;
         Vector radiusProfile,massProfile,metricProfile,pressureProfile,densityProfile; // solution vectors
