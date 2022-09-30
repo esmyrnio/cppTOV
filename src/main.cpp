@@ -4,32 +4,13 @@
 #include "../include/eos.hpp"
 #include "../include/tov.hpp"
 
-char eos_name[80];
-double central_density;
-double Gamma;
-double Kappa;
-char MODE;
-int PRINT;
-
-// void get_MR(std::string _eos_name, double _central_density, double* mass, double* radius){
-//     TOV model(_eos_name, _central_density);
-//     model.integrateTOV();
-//     *mass = model.mass;
-//     *radius = model.radius;
-// }
-
-// void get_MR(double _Kappa, double _Gamma, double _central_density, double* mass, double* radius){
-//     TOV model(_Kappa,_Gamma,_central_density);
-//     model.integrateTOV();
-//     *mass = model.mass;
-//     *radius = model.radius;
-// }
-
-
+char eos_name[80]; //tabulated EoS file
+double central_density; //central density input
+double Kappa,Gamma; //polytropic parameters input
+char MODE; //mode for tabulated or polytropic EoS
+int PRINT; //print option
 
 int main(int argc, char *argv[]){
-    // EXECUTION::call_type = "main_call";
-    // EXECUTION::CALL_MAIN = true;
     for(int i=1;i<argc;i++) 
       if(argv[i][0]=='-'){
         switch(argv[i][1]){
@@ -51,13 +32,11 @@ int main(int argc, char *argv[]){
             case 'p':
                 sscanf(argv[i+1],"%i",&PRINT);
                 break;
-
           }
       }
-	
-
     switch (MODE)
     {
+    //tabulated case
     case 't':{
         TOV tabModel(eos_name,central_density);
         tabModel.integrateTOV();
@@ -75,6 +54,7 @@ int main(int argc, char *argv[]){
         }
         break;
     }
+    //polytropic case
     case 'p':{
         TOV polyModel(Kappa,Gamma,central_density);
         polyModel.integrateTOV();
@@ -95,8 +75,6 @@ int main(int argc, char *argv[]){
     default: 
         exit(1);
         break;
-
     }
-
     return 0;
 }
