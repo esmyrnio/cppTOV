@@ -1,3 +1,5 @@
+/* This is are the bindings used to compile the TOV solver with emscripten and link the TOV class to JS*/
+
 #include <iostream>
 #include <stdio.h>
 #include "../include/constants.hpp"
@@ -7,11 +9,9 @@
 #include <emscripten/bind.h>
 
 using namespace emscripten;
-
-
 class Model{
-
   public:
+  //tabulated EoS construcor
   Model(String eos_name, double eps_c):
     model(eos_name,eps_c)
     {
@@ -19,6 +19,7 @@ class Model{
       mass = model.mass;
       radius = model.radius;
     };
+  //polytropic EoS constructor
   Model(double Kappa, double Gamma, double eps_c):
     model(Kappa,Gamma,eps_c)
     {
@@ -28,10 +29,9 @@ class Model{
     };
   private:
     TOV model;
-
   public: 
     double mass,radius;
-
+    //solution profile vectors
     Vector returnMassProfile(){
       Vector massProfile = model.massProfile;
       return massProfile;
@@ -69,6 +69,4 @@ EMSCRIPTEN_BINDINGS(Model)
     .property("radius",&Model::radius)
     ;
   register_vector<double>("vector<double>");
-    
 }
-
