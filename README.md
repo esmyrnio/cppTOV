@@ -11,12 +11,12 @@ Compile, using the provided makefile.
 
 The executable inputs are specified using the following flags:
 
-- **-m** *EoS model* ('p' for polytrope, 't' for tabulated)
-- **-f** *eos name* (EoS file name, if EoS is tabulated).
-- **-g** *Gamma* (polytropic parameter, if EoS is polytropic)
-- **-k** *Kappa* (polytropic parameter, if EoS is polytropic)
-- **-e** *central energy density* (central energy density in CGS/10^15).
-- **-p** *print option*:
+- **-m** EoS model ('p' for polytrope, 't' for tabulated)
+- **-f** EoS name (EoS file name, if EoS is tabulated).
+- **-g** Gamma (polytropic parameter, if EoS is polytropic)
+- **-k** Kappa (polytropic parameter, if EoS is polytropic)
+- **-e** central energy density (central energy density in CGS/10^15).
+- **-p** print option:
     -  0: Prints gravitational mass M and radius R.
     -  1: Prints (0) along with the distance, metric, energy density and pressure profiles.
 
