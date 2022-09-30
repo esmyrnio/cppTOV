@@ -1,6 +1,6 @@
 # cppTOV
 
-This is the TOV solver used in [quickStar](https://github.com/esmyrnio/quickStar), for [tabulated](https://ui.adsabs.harvard.edu/abs/2021PhRvD.103l3004B/abstract) ```(EoS/)``` or polytropic equations of state. 
+This is the TOV solver used in [quickStar](https://github.com/esmyrnio/quickStar), for [tabulated](https://ui.adsabs.harvard.edu/abs/2021PhRvD.103l3004B/abstract)[^1] ```(EoS/)``` or polytropic equations of state. 
 The Tolman–Oppenheimer–Volkoff (TOV) system of ODEs is solved by implementing a [C++11 version of LSODA](https://github.com/dilawar/libsoda-cxx)[^2], which has been slightly modified to fit the ```TOV``` class. 
 Additionaly, some modules from the [BOOST](https://github.com/boostorg/boost)[^3] C++ library are used to interpolate the tabulated equations of state, 
 and also to find the central pressure in polytropic equations of state.
