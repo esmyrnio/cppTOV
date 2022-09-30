@@ -1,4 +1,4 @@
-/* This is are the bindings used to compile the TOV solver with emscripten and link the TOV class to JS*/
+/* These are the bindings used to compile the TOV solver with emscripten and link the TOV class to JS*/
 
 #include <iostream>
 #include <stdio.h>
